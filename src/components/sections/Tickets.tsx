@@ -6,7 +6,7 @@ import MagneticButton from '../MagneticButton'
 
 export default function Tickets() {
   return (
-    <section id="tickets" className="relative py-24 sm:py-32 px-4 sm:px-6">
+    <section id="tickets" className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
       <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-violet-600/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-6xl mx-auto relative">

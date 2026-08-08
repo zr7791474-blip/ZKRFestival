@@ -56,7 +56,7 @@ export default function Hero() {
       id="home"
       ref={sectionRef}
       style={{ contain: 'layout style paint' }}
-      className="relative h-screen overflow-hidden"
+      className="relative h-screen h-dvh overflow-hidden"
     >
       {/* GIF Background — full screen, behind all content */}
       <img

@@ -25,7 +25,7 @@ function ArtistCard({ artist, index }: { artist: (typeof artists)[number]; index
   }
 
   const isFeatured = artist.featured
-  const colSpan = isFeatured ? 'md:col-span-2 md:row-span-2' : ''
+  const colSpan = isFeatured ? 'lg:col-span-2 lg:row-span-2' : ''
 
   return (
     <SectionReveal delay={index * 0.08} direction="up">
@@ -78,7 +78,7 @@ function ArtistCard({ artist, index }: { artist: (typeof artists)[number]; index
 
 export default function Lineup() {
   return (
-    <section id="lineup" className="relative py-24 sm:py-32 px-4 sm:px-6">
+    <section id="lineup" className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-violet-600/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative">
@@ -97,7 +97,7 @@ export default function Lineup() {
           </div>
         </SectionReveal>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[220px] sm:auto-rows-[240px]">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 lg:gap-5 auto-rows-[200px] sm:auto-rows-[220px] md:auto-rows-[240px] lg:auto-rows-[260px]">
           {artists.map((artist, i) => (
             <ArtistCard key={artist.id} artist={artist} index={i} />
           ))}

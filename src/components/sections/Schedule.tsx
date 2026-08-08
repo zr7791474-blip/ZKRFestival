@@ -9,7 +9,7 @@ export default function Schedule() {
   const activeSchedule = schedule[activeDay]
 
   return (
-    <section id="schedule" className="relative py-24 sm:py-32 px-4 sm:px-6">
+    <section id="schedule" className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
       <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-fuchsia-600/5 rounded-full blur-[150px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto relative">

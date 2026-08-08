@@ -56,7 +56,7 @@ function AccordionItem({ item, index }: { item: (typeof faqData)[number]; index:
 
 export default function FAQ() {
   return (
-    <section id="faq" className="relative py-24 sm:py-32 px-4 sm:px-6">
+    <section id="faq" className="relative py-24 sm:py-32 px-4 sm:px-6 overflow-hidden">
       <div className="absolute top-1/2 left-0 w-[400px] h-[400px] bg-fuchsia-600/5 rounded-full blur-[150px] pointer-events-none -translate-y-1/2" />
 
       <div className="max-w-3xl mx-auto relative">

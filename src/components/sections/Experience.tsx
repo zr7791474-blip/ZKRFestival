@@ -9,6 +9,8 @@ export default function Experience() {
   const [active, setActive] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
   const thumbRefs = useRef<Array<HTMLButtonElement | null>>([])
+  const railRef = useRef<HTMLDivElement | null>(null)
+  const isFirstRender = useRef(true)
   const count = experiences.length
 
   const goTo = useCallback(
@@ -29,18 +31,36 @@ export default function Experience() {
     return () => window.clearInterval(id)
   }, [isPaused, count])
 
+  // Keep the active thumbnail visible inside the horizontal rail only.
+  // IMPORTANT: this must never call the native `scrollIntoView`, because
+  // that scrolls the nearest scrollable ancestor on BOTH axes — including
+  // the page/window. When this section is reached via Lenis (our only
+  // page-level smooth-scroll system), a simultaneous native scroll fights
+  // Lenis's own RAF-driven scroll and leaves the page resting at the wrong
+  // vertical position, which is what made the featured image appear
+  // cropped/misaligned after navigating in. Scrolling the rail's own
+  // scrollLeft keeps this 100% horizontal and scoped to the rail element,
+  // so it can never affect window scroll position.
   useEffect(() => {
-    thumbRefs.current[active]?.scrollIntoView({
-      behavior: 'smooth',
-      inline: 'center',
-      block: 'nearest',
-    })
+    if (isFirstRender.current) {
+      isFirstRender.current = false
+      return
+    }
+    const container = railRef.current
+    const el = thumbRefs.current[active]
+    if (!container || !el) return
+
+    const target = el.offsetLeft - container.clientWidth / 2 + el.offsetWidth / 2
+    container.scrollTo({ left: Math.max(0, target), behavior: 'smooth' })
   }, [active])
 
   const current = experiences[active]
 
   return (
-    <section className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      id="experience"
+      className="relative py-24 sm:py-32 overflow-hidden scroll-mt-24"
+    >
       <div className="px-4 sm:px-6 mb-10 sm:mb-14">
         <SectionReveal>
           <div className="max-w-7xl mx-auto">
@@ -123,6 +143,7 @@ export default function Experience() {
 
           {/* Thumbnail rail — native horizontal scroll, no scroll-jacking */}
           <div
+            ref={railRef}
             className="mt-5 sm:mt-6 flex gap-3 sm:gap-4 overflow-x-auto pb-1 snap-x snap-mandatory scrollbar-hide"
             role="tablist"
             aria-label="Experience selector"
