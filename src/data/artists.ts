@@ -188,7 +188,7 @@ export const artists: Artist[] = [
   {
     id: 8,
     slug: 'fractal-mind',
-    name: 'Fractal Mind',
+    name: 'PNL',
     stage: 'Neon Arena',
     day: 'Day Three',
     image: '/images/artists/artist-fractal-mind.jpg',
