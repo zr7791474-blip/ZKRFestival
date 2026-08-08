@@ -1,4 +1,3 @@
-```ts
 export interface ArtistSocialLinks {
   spotify?: string
   youtube?: string
@@ -325,4 +324,4 @@ export function getArtistStageName(item: { artistId?: number; label?: string }):
   }
   return item.label ?? ''
 }
-```
+
