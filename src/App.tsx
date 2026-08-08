@@ -42,7 +42,55 @@ export default function App() {
     gsap.ticker.add(rafCallback)
     gsap.ticker.lagSmoothing(0)
 
+    // Route in-page anchor links (navbar, buttons, footer) through Lenis.
+    // Without this, a native hash jump snaps the real scroll position while
+    // Lenis keeps animating toward its own stale target, which is what
+    // produces the "jumpy / stuck" feeling right after tapping a nav link.
+    const getNavOffset = () => {
+      const nav = document.querySelector('nav')
+      const height = nav?.getBoundingClientRect().height ?? 80
+      return height + 16
+    }
+
+    const scrollToTarget = (el: Element) => {
+      lenis.scrollTo(el as HTMLElement, { offset: -getNavOffset(), duration: 1.3 })
+    }
+
+    const handleAnchorClick = (e: MouseEvent) => {
+      const anchor = (e.target as HTMLElement)?.closest('a[href^="#"]') as HTMLAnchorElement | null
+      if (!anchor) return
+
+      const hash = anchor.getAttribute('href')
+      if (!hash || hash === '#') return
+
+      let el = document.querySelector(hash)
+      e.preventDefault()
+
+      if (el) {
+        scrollToTarget(el)
+        return
+      }
+
+      // Target belongs to a below-fold section that is still code-splitting
+      // in. Poll briefly instead of silently doing nothing or fighting a
+      // native jump once it finally mounts.
+      let attempts = 0
+      const poll = window.setInterval(() => {
+        attempts += 1
+        el = document.querySelector(hash)
+        if (el) {
+          window.clearInterval(poll)
+          scrollToTarget(el)
+        } else if (attempts > 20) {
+          window.clearInterval(poll)
+        }
+      }, 50)
+    }
+
+    document.addEventListener('click', handleAnchorClick)
+
     return () => {
+      document.removeEventListener('click', handleAnchorClick)
       gsap.ticker.remove(rafCallback)
       lenis.destroy()
       ScrollTrigger.getAll().forEach((t) => t.kill())

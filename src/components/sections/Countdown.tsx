@@ -38,11 +38,11 @@ function CounterUnit({ value, label }: { value: number; label: string }) {
 
   return (
     <div ref={ref} className="text-center">
-      <GlassCard className="p-6 sm:p-8 min-w-[100px] sm:min-w-[130px]" glow="purple">
-        <span ref={numRef} className="block font-clash text-4xl sm:text-5xl font-bold gradient-text">
+      <GlassCard className="p-4 sm:p-8 min-w-[72px] sm:min-w-[130px]" glow="purple">
+        <span ref={numRef} className="block font-clash text-3xl sm:text-5xl font-bold gradient-text">
           00
         </span>
-        <span className="block mt-2 text-xs uppercase tracking-[0.2em] text-white/40">
+        <span className="block mt-1.5 sm:mt-2 text-[10px] sm:text-xs uppercase tracking-[0.15em] sm:tracking-[0.2em] text-white/40">
           {label}
         </span>
       </GlassCard>
