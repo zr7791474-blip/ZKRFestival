@@ -57,7 +57,7 @@ export const artists: Artist[] = [
   {
     id: 2,
     slug: 'neon-collective',
-    name: 'Neon Collective',
+    name: 'Sabrina Carpenter',
     stage: 'Main Stage',
     day: 'Day One',
     image: '/images/artists/artist-neon-collective.jpg',
@@ -100,7 +100,7 @@ export const artists: Artist[] = [
   {
     id: 4,
     slug: 'pulse-engine',
-    name: 'Pulse Engine',
+    name: 'Billie Eilish',
     stage: 'Main Stage',
     day: 'Day Two',
     image: '/images/artists/artist-pulse-engine.jpg',
@@ -122,7 +122,7 @@ export const artists: Artist[] = [
   {
     id: 5,
     slug: 'void-protocol',
-    name: 'Void Protocol',
+    name: 'ISSAM',
     stage: 'Neon Arena',
     day: 'Day Two',
     image: '/images/artists/artist-void-protocol.jpg',
@@ -144,7 +144,7 @@ export const artists: Artist[] = [
   {
     id: 6,
     slug: 'crystal-mesh',
-    name: 'Crystal Mesh',
+    name: 'INNA',
     stage: 'Main Stage',
     day: 'Day Two',
     image: '/images/artists/artist-crystal-mesh.jpg',
@@ -165,7 +165,7 @@ export const artists: Artist[] = [
   {
     id: 7,
     slug: 'binary-sunset',
-    name: 'Binary Sunset',
+    name: 'Karol G',
     stage: 'Main Stage',
     day: 'Day Three',
     image: '/images/artists/artist-binary-sunset.jpg',
@@ -209,7 +209,7 @@ export const artists: Artist[] = [
   {
     id: 9,
     slug: 'echo-chamber',
-    name: 'Echo Chamber',
+    name: 'DJ Snake',
     stage: 'Main Stage',
     day: 'Day Three',
     image: '/images/artists/artist-echo-chamber.jpg',
@@ -230,7 +230,7 @@ export const artists: Artist[] = [
   {
     id: 10,
     slug: 'hologram',
-    name: 'Hologram',
+    name: 'Morad',
     stage: 'Neon Arena',
     day: 'Day One',
     image: '/images/artists/artist-hologram.jpg',
@@ -252,7 +252,7 @@ export const artists: Artist[] = [
   {
     id: 11,
     slug: 'spectra',
-    name: 'Spectra',
+    name: 'Amr Diab',
     stage: 'Neon Arena',
     day: 'Day Two',
     image: '/images/artists/artist-spectra.jpg',
@@ -274,7 +274,7 @@ export const artists: Artist[] = [
   {
     id: 12,
     slug: 'lunar-drift',
-    name: 'Lunar Drift',
+    name: 'Harry Styles',
     stage: 'Main Stage',
     day: 'Day One',
     image: '/images/artists/artist-lunar-drift.jpg',
